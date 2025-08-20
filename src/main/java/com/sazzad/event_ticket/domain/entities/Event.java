@@ -1,6 +1,6 @@
-package com.sazzad.event_ticket.domain.entity;
+package com.sazzad.event_ticket.domain.entities;
 
-import com.sazzad.event_ticket.domain.EventStatusEnum;
+import com.sazzad.event_ticket.domain.enums.EventStatusEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
