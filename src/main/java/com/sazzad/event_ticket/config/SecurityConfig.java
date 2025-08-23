@@ -3,6 +3,7 @@ package com.sazzad.event_ticket.config;
 import com.sazzad.event_ticket.filters.UserProvisioningFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -18,9 +19,11 @@ public class SecurityConfig {
             UserProvisioningFilter userProvisioningFilter) throws Exception {
 
         httpSecurity
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest()
-                        .authenticated()
+                .authorizeHttpRequests(authorize ->
+                        authorize
+                                .requestMatchers(HttpMethod.GET, "/api/v1/published-events/**").permitAll()
+                                //catch all rule
+                                .anyRequest().authenticated()
                 )
 
                 .csrf(csrf -> csrf.disable())
