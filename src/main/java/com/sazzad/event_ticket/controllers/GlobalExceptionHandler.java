@@ -1,10 +1,7 @@
 package com.sazzad.event_ticket.controllers;
 
 import com.sazzad.event_ticket.domain.dtos.ErrorDto;
-import com.sazzad.event_ticket.exceptions.EventNotFoundException;
-import com.sazzad.event_ticket.exceptions.EventUpdateException;
-import com.sazzad.event_ticket.exceptions.TicketTypeNotFoundException;
-import com.sazzad.event_ticket.exceptions.UserNotFoundException;
+import com.sazzad.event_ticket.exceptions.*;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,6 +17,15 @@ import java.util.List;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(QrCodeGenerationException.class)
+    public ResponseEntity<ErrorDto> handleQrCodeGenerationException(QrCodeGenerationException ex) {
+
+        log.error("Caught QrCodeGenerationException", ex);
+        ErrorDto errorDto =new ErrorDto();
+        errorDto.setError("Unable to generate QR code");
+        return new ResponseEntity<>(errorDto, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     @ExceptionHandler(EventUpdateException.class)
     public ResponseEntity<ErrorDto> handleEventNotFoundException(EventUpdateException ex) {
