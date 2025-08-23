@@ -41,9 +41,4 @@ public interface EventMapper {
 
     GetPublishedEventDetailsResponseDto toGetPublishedEventDetailsResponseDto (Event event);
 
-
-
-
-
-
 }
