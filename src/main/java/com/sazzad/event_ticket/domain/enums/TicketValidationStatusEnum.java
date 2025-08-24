@@ -1,5 +1,5 @@
 package com.sazzad.event_ticket.domain.enums;
 
-public enum TicketValidationEnum {
+public enum TicketValidationStatusEnum {
     VALID, INVALID, EXPIRED
 }

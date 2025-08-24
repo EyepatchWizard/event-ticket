@@ -1,6 +1,6 @@
 package com.sazzad.event_ticket.domain.entities;
 
-import com.sazzad.event_ticket.domain.enums.TicketValidationEnum;
+import com.sazzad.event_ticket.domain.enums.TicketValidationStatusEnum;
 import com.sazzad.event_ticket.domain.enums.TicketValidationMethodEnum;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,7 +27,7 @@ public class TicketValidation {
 
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TicketValidationEnum status;
+    private TicketValidationStatusEnum status;
 
     @Column(name = "validation_method", nullable = false)
     @Enumerated(EnumType.STRING)
