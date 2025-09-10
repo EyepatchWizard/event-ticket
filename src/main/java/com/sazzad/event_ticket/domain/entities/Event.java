@@ -52,10 +52,10 @@ public class Event {
     @JoinColumn(name = "organizer_id")
     private User organizer;
 
-    @ManyToMany(mappedBy = "attendingEvents")
+    @ManyToMany(mappedBy = "attendedEvent")
     private List<User> attendees = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "staffingEvents")
+    @ManyToMany(mappedBy = "staffingEvent")
     private List<User> staff = new ArrayList<>();
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)

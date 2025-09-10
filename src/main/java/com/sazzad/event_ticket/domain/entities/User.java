@@ -30,7 +30,7 @@ public class User {
     @Column(name = "email", nullable = false)
     private  String email;
 
-    @OneToMany(mappedBy = "orgarizer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "organizer", cascade = CascadeType.ALL)
     private List<Event> organizedEvent = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)

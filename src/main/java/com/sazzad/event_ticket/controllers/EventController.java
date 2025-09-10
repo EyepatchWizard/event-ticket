@@ -81,7 +81,7 @@ public class EventController {
                     .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping(path = "/{eventId")
+    @DeleteMapping(path = "/{eventId}")
     public ResponseEntity<Void> deleteEvent(
             @AuthenticationPrincipal Jwt jwt,
             @PathVariable UUID eventId

@@ -42,7 +42,7 @@ public class TicketController {
         ).map(ticketMapper::toListTicketResponseDto);
     }
 
-    @GetMapping(path = "/{ticketId")
+    @GetMapping(path = "/{ticketId}")
     public ResponseEntity<GetTicketResponseDto> getTicket(
             @AuthenticationPrincipal Jwt jwt,
             @PathVariable UUID ticketId
